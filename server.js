@@ -15,8 +15,8 @@ const connection = mongoose.connection;
 connection.once('open', ()=>{
     console.log("MongoDB database connection established successfully")
 })
-
- 
+const noteController = require("./controllers/note.controller")
+ app.use("/api", noteController)
 
 app.listen(PORT, ()=>{
     console.log("Listening on PORT: " + PORT);
