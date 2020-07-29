@@ -19,6 +19,19 @@ router.post("/addnote", (req, res)=>{
     .catch(err=>res.status(400).json("Error: " + err))
 })
 
+router.put("/update/:id", (req, res)=>{
+    Note.findById(req.params.id)
+    .then(response =>{
+        response.title= req.body.title;
+        response.note= req.body.note
+
+        response.save()
+        .then(() => res.json("Updated Successful"))
+        .catch(err => res.status(400).json("Error: " + err));
+    })
+    .catch(err => res.status(400).json("Error: " + err))
+})
+
 router.delete("/:id", (req, res)=>{
     Todo.findByIdAndDelete(req.params.id)
     .then(()=>res.json("Note Deleted"))
