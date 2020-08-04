@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import AllNotes from './pages/all-notes';
 import AddNote from './pages/add-note';
 import './App.css';
+import Header from './components/header.component';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <Header />
       <Switch>
         <Route exact path="/" component={AllNotes} />
-        <Route path="/addnotes" component={AddNote} />
+        <Route path="/add" component={AddNote} />
       </Switch>
     </div>
     </Router>
