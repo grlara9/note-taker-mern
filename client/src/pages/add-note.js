@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import FormAdd from '../components/new-note.component'
 
 export default class AddNote extends Component {
     render() {
         return (
             <div>
-                <h1>this is the add note page</h1>
+                <FormAdd />
             </div>
         )
     }

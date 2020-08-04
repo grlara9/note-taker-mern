@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const AddNote = props => {
+const FormAdd = props => {
     return (
         <div className="form-container">
         <form>
@@ -30,4 +30,4 @@ const AddNote = props => {
         </div>
     )
 }
-export default AddNote
+export default FormAdd
