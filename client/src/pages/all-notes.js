@@ -1,10 +1,32 @@
 import React, { Component } from 'react'
+import axios from 'axios';
+import SavedNotes from '../components/saved-notes.component'
 
 export default class AllNotes extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            notes:[]
+        }
+    }
+    componentDidMount(){
+        axios.get('http://localhost:5000/api/')
+        
+        .then(response=>this.setState({notes:response.data}))
+        .catch(err=>console.log(err))
+    }
+
+    deletenote =(id)=>{
+        //axios.delete('http://localhost:5000/api' +id)
+    }
+
+    editnote=()=>{
+
+    }
     render() {
         return (
             <div>
-                <h1>All notes pages to be display</h1>
+               <SavedNotes notes={this.state.notes} delete={this.deletenote}/>
             </div>
         )
     }
