@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import AllNotes from './pages/all-notes';
 import AddNote from './pages/add-note';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './components/header.component';
 
 function App() {
