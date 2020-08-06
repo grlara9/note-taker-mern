@@ -17,7 +17,10 @@ export default class AllNotes extends Component {
     }
 
     deletenote =(id)=>{
-        //axios.delete('http://localhost:5000/api' +id)
+        axios.delete('http://localhost:5000/api' +id)
+        .then(promise => this.setState({
+            notes: [...this.state.todos.filter(note => note._id ===! id)]
+        }))
     }
 
     editnote=()=>{
@@ -26,7 +29,7 @@ export default class AllNotes extends Component {
     render() {
         return (
             <div>
-               <SavedNotes notes={this.state.notes} delete={this.deletenote}/>
+               <SavedNotes notes={this.state.notes} delete={this.deletenote} edit={this.editnote}/>
             </div>
         )
     }
