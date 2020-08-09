@@ -28,6 +28,16 @@ export default class AddNote extends Component {
             note:this.state.note
         }
         axios.post('http://localhost:5000/api/addnote', values)
+        .then(()=>{
+            console.log("Data has been sent to the database")
+            this.setState({
+                title:'',
+                note:''
+            })
+        })
+        .catch(()=>{
+            console.log("Internal server error")
+        })
     }
 
     render() {
