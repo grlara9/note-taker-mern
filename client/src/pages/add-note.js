@@ -3,21 +3,29 @@ import FormAdd from '../components/new-note.component'
 
 export default class AddNote extends Component {
     state={
-        query:'',
+        title:'',
+        note:''
 
     }
    
-    onChange= (value)=>{
+    onChangeTitle= (value)=>{
         this.setState({
-            query:value
+            title:value,
+            
         })
     }
 
+    onChangeNote= (value)=>{
+        this.setState({
+            
+            note:value
+        })
+    }
 
     render() {
         return (
             <div>
-                <FormAdd onChange={this.onChange}/>
+                <FormAdd onChangeTitle={this.onChangeTitle} onChangeNote={this.onChangeNote}/>
             </div>
         )
     } 

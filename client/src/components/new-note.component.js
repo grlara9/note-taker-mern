@@ -12,13 +12,14 @@ const FormAdd = props => {
                             type="text"
                             name="addnote"
                             placeholder="Title"
-                            onChange={(e) => {props.onChange(e.target.value)}}
+                            onChange={(e) => {props.onChangeTitle(e.target.value)}}
                             />
                     </li>
                     <li>
                         <textarea
+                        value={props.note}
                             placeholder="Note...."
-                            name="note" onChange={(e) => {props.onChange(e.target.value)}}
+                            name="note" onChange={(e) => {props.onChangeNote(e.target.value)}}
                             rows="6"></textarea>
                     </li>
           
