@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import FormAdd from '../components/new-note.component'
-
+import axios from 'axios';
 export default class AddNote extends Component {
     state={
         title:'',
@@ -21,11 +21,23 @@ export default class AddNote extends Component {
             note:value
         })
     }
+    handleFormSubmit = (e) =>{
+        e.preventDefault();
+        const values = {
+            title: this.state.title,
+            note:this.state.note
+        }
+        axios.post('http://localhost:5000/api/addnote', values)
+    }
 
     render() {
         return (
             <div>
-                <FormAdd onChangeTitle={this.onChangeTitle} onChangeNote={this.onChangeNote}/>
+                <FormAdd 
+                onChangeTitle={this.onChangeTitle} 
+                onChangeNote={this.onChangeNote}
+                handleFormSubmit={this.handleFormSubmit}
+                />
             </div>
         )
     } 
