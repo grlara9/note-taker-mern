@@ -4,14 +4,15 @@ import React from "react";
 const FormAdd = props => {
     return (
         <div className="form-container">
-            <form>
+                    <h1>{props.msg}</h1>
+            <form onSubmit={(e) => {props.handleFormSubmit(e)}}>
                 <ul className="flex-outer">
                     <li>
                         <input 
                             value={props.title}
                             type="text"
                             name="addnote"
-                            placeholder="Title"
+                            placeholder="Title" 
                             onChange={(e) => {props.onChangeTitle(e.target.value)}}
                             />
                     </li>
@@ -24,7 +25,7 @@ const FormAdd = props => {
                     </li>
           
                      <li>
-                        <button type="submit" onClick={props.handleFormSubmit}>Submit</button>
+                        <button type="submit" >Submit</button>
                     </li>
                 </ul>
             </form>

@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import FormAdd from '../components/new-note.component'
 import axios from 'axios';
 export default class AddNote extends Component {
-    state={
-        title:'',
-        note:''
+    constructor(props){
+        super(props)
+        this.state={
+            title:'',
+            note:'',
+            msg:''
+        }
 
     }
    
@@ -29,14 +33,20 @@ export default class AddNote extends Component {
         }
         axios.post('http://localhost:5000/api/addnote', values)
         .then(()=>{
-            console.log("Data has been sent to the database")
-            this.setState({
-                title:'',
-                note:''
-            })
+            this.setState({msg: 'Note added!'})
+            this.reset()
         })
+       
         .catch(()=>{
-            console.log("Internal server error")
+            this.setState({ msg: 'Internal server error'})
+            
+        })
+    }
+    
+    reset =() =>{
+        this.setState({
+            title:'',
+            note:''
         })
     }
 
@@ -47,6 +57,7 @@ export default class AddNote extends Component {
                 onChangeTitle={this.onChangeTitle} 
                 onChangeNote={this.onChangeNote}
                 handleFormSubmit={this.handleFormSubmit}
+                msg={this.state.msg}
                 />
             </div>
         )
