@@ -33,7 +33,7 @@ router.put("/update/:id", (req, res)=>{
 })
 
 router.delete("/:id", (req, res)=>{
-    Todo.findByIdAndDelete(req.params.id)
+    Note.findByIdAndDelete(req.params.id)
     .then(()=>res.json("Note Deleted"))
     .catch(err=>res.status(400).json("Error: " + err))
 })
