@@ -27,39 +27,34 @@
   margin: 0 auto;
   margin-top: 20px;
   padding: 10px;
-}
-
-.flex-outer{
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  list-style-type: none;
-  
-}
-.flex-outer li{
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
-.flex-outer > li:not(:last-child){
-  margin-bottom: 20px;
+
+form{
+  width:50%;
+  padding:10px;
 }
-.flex-outer li input,
-.flex-outer li textarea {
+
+.form-input input,
+.form-input textarea {
   padding: 15px;
   border-radius: 5px;
-  
+  margin: 10px 5px;
   width: 100%;
+  outline: none;
+  border: 1px solid lightslategray
  
 }
 
-.flex-outer li button {
+ button {
 
-  padding: 8px 16px;
+  padding: 5px 10px;
   border: none;
   background: #333;
   color: #f2f2f2;
-  text-transform: uppercase;
+  margin: 2px;
   letter-spacing: .09em;
   border-radius: 5px;
 }
