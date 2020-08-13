@@ -18,6 +18,11 @@ router.post("/addnote", (req, res)=>{
     .then(()=> res.json("Note Added"))
     .catch(err=>res.status(400).json("Error: " + err))
 })
+router.get("/:id", (req, res)=>{
+    Note.findById(req.params.id)
+    .then(response => res.json(response))
+    .catch(err=>res.status(400).json("Error:" + err))
+})
 
 router.put("/update/:id", (req, res)=>{
     Note.findById(req.params.id)
