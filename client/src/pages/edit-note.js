@@ -38,7 +38,19 @@ export default class EditNote extends Component {
             note:value
         })
     }
-    render() {
+
+    handleFormSubmit = (e) =>{
+        e.preventDefault()
+        const newnote = {
+            title:this.state.title,
+            note:this.state.note
+
+        }
+        axios.put('http://localhost:5000/api/update/' + this.props.match.params.id, newnote)
+        .then(res => this.setState({msg: 'Updated Sucessfully!'})
+        });
+    }
+        render() {
         return (
             <div>
                  <EditForm 
@@ -47,6 +59,7 @@ export default class EditNote extends Component {
                 handleFormSubmit={this.handleFormSubmit}
                 title={this.state.title}
                 note={this.state.note}
+                msg={this.state.msg}
                 />    
             </div>
         )

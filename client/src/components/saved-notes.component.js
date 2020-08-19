@@ -12,6 +12,7 @@ const SavedNotes  = props => {
                             <h5 className="card-title">{note.title}</h5>
                             
                             <p className="card-text">{note.note}</p>
+                            
                             <Link to={"/edit/"+note._id} ><button >Edit</button></Link>
                             
                             <a href="/"><button onClick={() => { props.delete(note._id) }}>Delete</button></a>
