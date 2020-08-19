@@ -34,19 +34,16 @@ export default class AddNote extends Component {
         axios.post('http://localhost:5000/api/addnote', values)
         .then(()=>{
             this.setState({msg: 'Note added!'})
-            this.reset()
+            this.setState({ 
+                gitnote:'',
+                title:'',
+               
+            })
         })
        
         .catch(()=>{
             this.setState({ msg: 'Internal server error'})
             
-        })
-    }
-    
-    reset =() =>{
-        this.setState({
-            title:'',
-            note:''
         })
     }
 

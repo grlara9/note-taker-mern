@@ -48,7 +48,8 @@ export default class EditNote extends Component {
         }
         axios.put('http://localhost:5000/api/update/' + this.props.match.params.id, newnote)
         .then(res => this.setState({msg: 'Updated Sucessfully!'})
-        });
+        )
+        .catch(err=> this.setState({msg:'Something went wrong'}))
     }
         render() {
         return (
