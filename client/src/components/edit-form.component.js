@@ -12,7 +12,7 @@ const EditForm = props => {
                         <input 
                             type="text"
                             name="addnote"
-                            placeholder="Title" 
+                             
                             value={props.title}
                             onChange={(e) => {props.onChangeTitle(e.target.value)}}
                             />
@@ -20,12 +20,12 @@ const EditForm = props => {
                    <div className="form-input">
                         <textarea
                         value={props.note}
-                            placeholder="Note...."
+                            
                             name="note" 
                             onChange={(e) => {props.onChangeNote(e.target.value)}}
                             rows="6"
                             cols="30s"
-                            ></textarea>
+    >{props.note}</textarea>
                   </div>
                         <button type="submit" >Submit</button>
                    

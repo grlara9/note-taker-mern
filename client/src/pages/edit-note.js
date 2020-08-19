@@ -9,12 +9,13 @@ export default class EditNote extends Component {
                 title:'',
                 note:'',
                 msg:''
-            }
+            } 
         }
 
         componentDidMount(){
-            axios.get('http://localhost:5000/api"/'+this.props.match.params.id)
+            axios.get('http://localhost:5000/api/'+this.props.match.params.id)
             .then(response => {
+                console.log("response"+response)
               this.setState({
                 title: response.data.title,
                 note: response.data.note,
@@ -25,10 +26,10 @@ export default class EditNote extends Component {
             .catch(function (error) {
               console.log(error);
             })
-   
+        }
     onChangeTitle= (value)=>{
         this.setState({
-            title:value,
+            title:value
         })
     }
 
@@ -44,7 +45,8 @@ export default class EditNote extends Component {
                 onChangeTitle={this.onChangeTitle} 
                 onChangeNote={this.onChangeNote}
                 handleFormSubmit={this.handleFormSubmit}
-                msg={this.state.msg}
+                title={this.state.title}
+                note={this.state.note}
                 />    
             </div>
         )
