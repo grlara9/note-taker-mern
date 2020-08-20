@@ -28,7 +28,7 @@ export default class AllNotes extends Component {
     }
     render() { 
         return (
-            <div> 
+            <div>  
                <SavedNotes notes={this.state.notes} delete={this.deletenote} edit={this.editnote}/>
             </div>
         )

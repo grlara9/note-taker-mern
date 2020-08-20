@@ -5,6 +5,10 @@
   font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
   
 }
+.container{
+  margin:5px auto;
+}
+
 .navbar{
   display: flex;
   justify-content: space-between;
