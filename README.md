@@ -2,6 +2,9 @@
 ## Overview
 A simple note taking application using the MERN stack. The application will enable users to add, update, delete and display their daily notes.
 
+## Project
+![googlebook](screenshots/notetaker.png)
+
 [Deploy] (https://notetakermemo.herokuapp.com/)
 
 
