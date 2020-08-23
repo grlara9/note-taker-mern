@@ -1,4 +1,6 @@
-# note-taker-mern
+# Note-Taker-MERN
+## Overview
+A simple note taking application using the MERN stack. The application will enable users to add, update, delete and display their daily notes.
 
 [Deploy] (https://notetakermemo.herokuapp.com/)
 

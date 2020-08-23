@@ -9,7 +9,7 @@ const SavedNotes  = props => {
                     return (
                         <div className="card col-md-3">
                             <div className="card-header">
-                                <h5 className="card-title">{note.title}</h5>
+                                <h5>{note.title}</h5>
                             </div>
                             <div className="card-body " >
                                 
