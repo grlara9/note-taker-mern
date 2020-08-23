@@ -8,8 +8,10 @@ const SavedNotes  = props => {
                 {props.notes.map(note => {
                     return (
                         <div className="card col-md-3">
-                            <div className="card-body " >
+                            <div className="card-header">
                                 <h5 className="card-title">{note.title}</h5>
+                            </div>
+                            <div className="card-body " >
                                 
                                 <p className="card-text">{note.note}</p>
                                 
