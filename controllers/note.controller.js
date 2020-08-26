@@ -31,7 +31,7 @@ router.put("/update/:id", (req, res)=>{
         response.note= req.body.note
 
         response.save()
-        .then(() => res.json("Updated Successful"))
+        .then(() => res.status(200).json("Updated Successful from backends"))
         .catch(err => res.status(400).json("Error: " + err));
     })
     .catch(err => res.status(400).json("Error: " + err))
