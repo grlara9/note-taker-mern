@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 const SavedNotes  = props => {
@@ -7,7 +7,8 @@ const SavedNotes  = props => {
             <div className="row">
                 {props.notes.map(note => {
                     return (
-                        <div className="card col-md-3">
+                        <div className="card col-md-3" key={note._id} >
+                           
                             <div className="card-header">
                                 <h5>{note.title}</h5>
                             </div>
