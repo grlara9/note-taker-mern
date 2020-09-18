@@ -13,11 +13,13 @@ function App() {
     <Router>
       <div className="App">
         <Navigation />
+        <main>
       <Switch>
         <Route exact path="/" component={AllNotes} />
         <Route path="/add" component={AddNote} />
         <Route path="/edit/:id" component={EditNote} />
       </Switch>
+      </main>
     </div>
     </Router>
      
