@@ -5,13 +5,14 @@ import AddNote from './pages/add-note';
 import EditNote from './pages/edit-note'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import Header from './components/header.component';
+//import Header from './components/header.component';
+import Navigation from './shared/components/Navigation/Navigation'
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Navigation />
       <Switch>
         <Route exact path="/" component={AllNotes} />
         <Route path="/add" component={AddNote} />

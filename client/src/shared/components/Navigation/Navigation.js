@@ -1,18 +1,16 @@
 import React, { useState }  from 'react'
 import { Link } from 'react-router-dom';
 
-import MainHeader from './MainHeader';
+import Header from './Header';
+import NavLinks from './NavLinks'
+//import './MainNavigation.css';
 
-import './MainNavigation.css';
-
-const MainNavigation = props => {
+const Navigation = props => {
   
   return (
     <React.Fragment>
-     
-
-      <Header>
-        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
+     <Header>
+        <button className="main-navigation__menu-btn" >
           <span />
           <span />
           <span />
@@ -28,4 +26,4 @@ const MainNavigation = props => {
   );
 };
 
-export default MainNavigation;
+export default Navigation;
