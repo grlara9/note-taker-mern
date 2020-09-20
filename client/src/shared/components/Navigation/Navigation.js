@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Header from './Header';
 import NavLinks from './NavLinks'
-//import './MainNavigation.css';
+import './Navigation.css';
 
 const Navigation = props => {
   
@@ -16,7 +16,7 @@ const Navigation = props => {
           <span />
         </button>
         <h1 className="main-navigation__title">
-          <Link to="/">YourPlaces</Link>
+          <Link to="/">Note Taker</Link>
         </h1>
         <nav className="main-navigation__header-nav">
           <NavLinks />
