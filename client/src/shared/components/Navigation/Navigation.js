@@ -3,14 +3,24 @@ import { Link } from 'react-router-dom';
 
 import Header from './Header';
 import NavLinks from './NavLinks'
+import SideDrawer from './SideDrawer'
 import './Navigation.css';
 
 const Navigation = props => {
-  
+  const [drawerIsOpen, setDrawerIsOpen] =useState(false);
+
+  const openDrawerHandler = () =>{
+    setDrawerIsOpen(true);
+  }
+
+  const closeDrawerHandler =()=>{
+    setDrawerIsOpen(false);
+  }
+
   return (
     <React.Fragment>
      <Header>
-        <button className="main-navigation__menu-btn" >
+        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
           <span />
           <span />
           <span />
