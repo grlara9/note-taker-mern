@@ -6,6 +6,7 @@ flex-direction: column;
 justify-content: space-around;
 margin-right: 3rem;
 cursor:pointer;
+color:black;
 
 
 }
@@ -27,6 +28,10 @@ background: white;
   .main-navigation__header-nav {
     display: none;
   }
+  .main-navigation__drawer-nav {
+    height: 100%;
+  }
+
   @media (min-width: 768px) {
     .main-navigation__menu-btn {
       display: none;

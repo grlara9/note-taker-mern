@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import NavLinks from './NavLinks'
 import SideDrawer from './SideDrawer'
+import Backdrop from './Backdrop'
 import './Navigation.css';
 
 const Navigation = props => {
@@ -19,6 +20,12 @@ const Navigation = props => {
 
   return (
     <React.Fragment>
+      
+      {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
+        <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
+          <nav className="main-navigation__drawer-nav"><NavLinks /></nav>
+        </SideDrawer>
+
      <Header>
         <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
           <span />
