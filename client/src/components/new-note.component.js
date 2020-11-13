@@ -22,7 +22,7 @@ const FormAdd = props => {
                             name="note" 
                             onChange={(e) => {props.onChangeNote(e.target.value)}}
                             rows="6"
-                            cols="30s"
+                            cols="30s" 
                             ></textarea>
                   </div>
                         <button type="submit" >Submit</button>

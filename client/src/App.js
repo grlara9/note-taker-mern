@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import AllNotes from './pages/all-notes';
+import AllNotes from './pages/AllNotes';
 import AddNote from './pages/add-note';
 import EditNote from './pages/edit-note'
 import "bootstrap/dist/css/bootstrap.min.css";
