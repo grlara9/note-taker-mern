@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import SavedNotes from '../components/saved-notes.component'
+import NoteList from '../components/NoteList'
 
 export default class AllNotes extends Component {
     constructor(props){
@@ -26,7 +26,7 @@ deletenote =(id)=>{
 
     render() { 
         return (
-            <SavedNotes 
+            <NoteList 
                 notes={this.state.notes} 
                 delete={this.deletenote} 
             />

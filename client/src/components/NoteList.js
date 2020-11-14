@@ -1,7 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SavedNotes  = props => {
+import './NoteList.css'
+const NoteList  = props => {
+
+    if (props.notes.length === 0){
+        return (
+            <div className="center">
+            <h1>No Notes Found</h1>        
+            </div>
+        )
+    }
     return (
         <div className="container">
             <div className="row">
@@ -29,4 +38,4 @@ const SavedNotes  = props => {
         </div>
         )
     } 
-export default SavedNotes 
+export default NoteList
