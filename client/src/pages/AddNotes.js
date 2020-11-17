@@ -1,7 +1,30 @@
 import React from 'react'
 import { Formik } from "formik";
+import './AddNotes.css'
+import {
+    Button,
+    TextField,
+    Container,
+    CssBaseline,
+    Grid,
+    Typography,
+    RadioGroup,
+    FormControlLabel,
+    Radio,
+    makeStyles,
+  } from "@material-ui/core";
 
+
+  const useStyles = makeStyles({
+    textField: {
+      marginTop: "1em",
+    },
+    pizzaImage: {
+      width: "100%",
+    },
+  });
 const AddNote =()=>{
+    const classes = useStyles();
     return(
         <Formik
              initialValues={{
@@ -11,18 +34,20 @@ const AddNote =()=>{
         }}
          validate={(values) => {
           const errors = {};
-          if (values.name.trim().length < 1) {
-            errors.title = "Required";
-          }else if(values.name.length < 5){
-              errors.title="Title should be more than 5 Characters"
+
+          if (!values.title) {
+            errors.title = 'Required';
+          } 
+
+          if (!values.note) {
+            errors.note = 'Required';
+          } else if (values.note.length < 20) {
+            errors.note = 'Must be 20 characters or more';
           }
-          if (values.note.trim().length < 1) {
-            errors.note = "Required";
-          }
-          else if(values.note.length < 15){
-            errors.note = "Note should be 15 characters long or more";
-          }
+          return errors;
         }}
+
+        onSubmit={(values) => {}}
         >
             {({
           values,
@@ -35,11 +60,11 @@ const AddNote =()=>{
         }) => (
           <form onSubmit={handleSubmit}>
             <TextField
-              error={errors.title && touched.title}
               label="Title "
               variant="outlined"
-              type="title"
+              type="text"
               name="title"
+              errors={errors.title && touched.title}
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.title}
@@ -48,23 +73,23 @@ const AddNote =()=>{
             />
             <TextField
               variant="outlined"
-              label="Your phone number"
-              error={errors.phone && touched.phone}
-              type="phone"
-              name="phone"
+              label="Enter Note"
+              errors={errors.note && touched.note}
+              type="text"
+              name="note"
               onChange={handleChange}
               onBlur={handleBlur}
-              value={values.phone}
+              value={values.note}
               fullWidth
               className={classes.textField}
             />
             <Button
               type="submit"
-              disabled={!errors.name && !errors.phone}
+              disabled={errors.title || errors.note}
               variant="contained"
               className={classes.textField}
             >
-              Where's the Pizzaaaaaahhhh!!!!
+             submit
             </Button>
             <div>{JSON.stringify({ ...values, ...errors })}</div>
           </form>
