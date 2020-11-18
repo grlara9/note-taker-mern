@@ -39,7 +39,7 @@ const AddNote =()=>{
 
       <label htmlFor="note">Note</label>
       <Field name="note" as="textarea" />
-      <ErrorMessage name="note" />
+      <ErrorMessage name="note" style={{color: 'red' }} />
 
      
       <button type="submit" className="submit-button">Submit</button>

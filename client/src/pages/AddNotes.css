@@ -14,7 +14,7 @@ Form{
   margin: 100px auto;
 }
 
-Form ErrorMessage{
+error-msg{
   color: red;
 }
 
