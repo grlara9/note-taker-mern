@@ -1,100 +1,50 @@
 import React from 'react'
-import { Formik } from "formik";
+import axios from 'axios'
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+ 
 import './AddNotes.css'
-import {
-    Button,
-    TextField,
-    Container,
-    CssBaseline,
-    Grid,
-    Typography,
-    RadioGroup,
-    FormControlLabel,
-    Radio,
-    makeStyles,
-  } from "@material-ui/core";
 
-
-  const useStyles = makeStyles({
-    textField: {
-      marginTop: "1em",
-    },
-    pizzaImage: {
-      width: "100%",
-    },
-  });
 const AddNote =()=>{
-    const classes = useStyles();
-    return(
-        <Formik
-             initialValues={{
-          title: "",
-          note: ""
-          
-        }}
-         validate={(values) => {
-          const errors = {};
+   return(
+    <Formik
+      initialValues={{ 
+        title: '', 
+        note: ''
+      }}
 
-          if (!values.title) {
-            errors.title = 'Required';
-          } 
+    validationSchema={Yup.object({
+      title: Yup.string()
+        .max(15, 'Must be 15 characters or less')
+        .required('Required'),
+      note: Yup.string()
+        .min(20, 'Must be 20 characters or more')
+        .required('Required'),
+      
+    })}
 
-          if (!values.note) {
-            errors.note = 'Required';
-          } else if (values.note.length < 20) {
-            errors.note = 'Must be 20 characters or more';
-          }
-          return errors;
-        }}
+    onSubmit={(values, { setSubmitting }) => {
+      axios.post('http://localhost:5000/api/addnote', values)
+       
+        setSubmitting(false);
+     
+    }}
+  >
+    <Form>
+      <h1>Add Note</h1>
 
-        onSubmit={(values) => {}}
-        >
-            {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          setFieldValue,
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <TextField
-              label="Title "
-              variant="outlined"
-              type="text"
-              name="title"
-              errors={errors.title && touched.title}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.title}
-              fullWidth
-              className={classes.textField}
-            />
-            <TextField
-              variant="outlined"
-              label="Enter Note"
-              errors={errors.note && touched.note}
-              type="text"
-              name="note"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.note}
-              fullWidth
-              className={classes.textField}
-            />
-            <Button
-              type="submit"
-              disabled={errors.title || errors.note}
-              variant="contained"
-              className={classes.textField}
-            >
-             submit
-            </Button>
-            <div>{JSON.stringify({ ...values, ...errors })}</div>
-          </form>
-        )}
-        </Formik>
+      <label htmlFor="title">Title</label>
+      <Field name="title" type="text" />
+      <ErrorMessage name="title" />
+
+      <label htmlFor="note">Note</label>
+      <Field name="note" as="textarea" />
+      <ErrorMessage name="note" />
+
+     
+      <button type="submit" className="submit-button">Submit</button>
+    </Form>
+  </Formik>
     )
 }
 export default AddNote

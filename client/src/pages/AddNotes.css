@@ -1,3 +1,26 @@
-textField{
-    margin-top: "1em";
-  }
+h1{
+  text-align: center;
+  color: #777;
+}
+label{
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+Form{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: 100px auto;
+}
+
+Form ErrorMessage{
+  color: red;
+}
+
+Form button {
+  background: cornflowerblue;
+  padding: 10px;
+  color:white;
+  margin-top: 20px;
+}
