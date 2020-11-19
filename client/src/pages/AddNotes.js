@@ -6,44 +6,52 @@ import * as Yup from 'yup';
 import './AddNotes.css'
 
 const AddNote =()=>{
-   return(
+  return(
     <Formik
-      initialValues={{ 
-        title: '', 
-        note: ''
-      }}
-
+    initialValues={{ 
+      title: '', 
+      note: ''
+    }}
+    
     validationSchema={Yup.object({
       title: Yup.string()
-        .max(15, 'Must be 15 characters or less')
-        .required('Required'),
+      .max(15, 'Must be 15 characters or less')
+      .required('Required'),
       note: Yup.string()
-        .min(20, 'Must be 20 characters or more')
-        .required('Required'),
+      .min(20, 'Must be 20 characters or more')
+      .required('Required'),
       
     })}
-
+    
     onSubmit={(values, { setSubmitting }) => {
       axios.post('http://localhost:5000/api/addnote', values)
-       
-        setSubmitting(false);
-     
+      
+      setSubmitting(false);
+      
+      
     }}
-  >
+    
+      >
     <Form>
       <h1>Add Note</h1>
 
       <label htmlFor="title">Title</label>
       <Field name="title" type="text" />
-      <ErrorMessage name="title" />
+      <ErrorMessage name="title" >
+        {errMsg => <span className="errorMessage">{errMsg}</span>}
+      </ErrorMessage>
 
       <label htmlFor="note">Note</label>
       <Field name="note" as="textarea" />
-      <ErrorMessage name="note" style={{color: 'red' }} />
+      
+      <ErrorMessage name="note" >
+        {errMsg => <span className="errorMessage">{errMsg}</span>}
+      </ErrorMessage>
 
      
-      <button type="submit" className="submit-button">Submit</button>
+      <button type="submit" className="submit-button" >Submit</button>
     </Form>
+    
   </Formik>
     )
 }

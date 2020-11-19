@@ -1,6 +1,6 @@
 h1{
   text-align: center;
-  color: #777;
+  color: #333;
 }
 label{
   margin-top: 20px;
@@ -14,8 +14,9 @@ Form{
   margin: 100px auto;
 }
 
-error-msg{
+.errorMessage{
   color: red;
+  font-weight: bold;
 }
 
 Form button {
