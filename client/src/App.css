@@ -52,16 +52,6 @@ form{
  
 }
 
- button {
-
-  padding: 5px 10px;
-  border: none;
-  background: #333;
-  color: #f2f2f2;
-  margin: 2px;
-  letter-spacing: .09em;
-  border-radius: 5px;
-}
 .card-header{
   display: block;
   text-align: center;

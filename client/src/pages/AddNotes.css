@@ -12,6 +12,9 @@ Form{
   flex-direction: column;
   width: 25%;
   margin: 100px auto;
+  border: 1px solid #333;
+  border-radius: 12px;
+  
 }
 
 .errorMessage{
@@ -20,7 +23,7 @@ Form{
 }
 
 Form button {
-  background: cornflowerblue;
+  background: #333;
   padding: 10px;
   color:white;
   margin-top: 20px;
